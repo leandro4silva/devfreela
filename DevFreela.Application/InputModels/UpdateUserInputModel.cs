@@ -1,9 +1,14 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using DevFreela.Core.Entities;
 
 namespace DevFreela.Application.InputModels
 {
-    public class CreateUserInputModel
+    public class UpdateUserInputModel
     {
+        public int Id { get; set; }
         public required string FullName { get; set; }
         public required string Email { get; set; }
         public DateTime BirthDate { get; set; }
