@@ -40,6 +40,7 @@ namespace DevFreela.Application.Services.Implementations
             var users = _dbContext.Users;
 
             var userViewModel = users.Select(u => new UserViewModel(
+                u.Id,
                 u.FullName,
                 u.Email,
                 u.BirthDate,
@@ -63,6 +64,7 @@ namespace DevFreela.Application.Services.Implementations
             }
 
             var userDetailsViewModel = new UserDetailsViewModel(
+                user.Id,
                 user.FullName,
                 user.Email,
                 user.BirthDate,

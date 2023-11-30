@@ -73,7 +73,7 @@ namespace DevFreela.Application.Services.Implementations
         {
             var project = _dbContext.Projects.SingleOrDefault(p => p.Id == id);
 
-            if (project is null)
+            if (project == null)
             {
                 throw new ResourceNotFound();
             }

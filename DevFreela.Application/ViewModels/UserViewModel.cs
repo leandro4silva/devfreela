@@ -8,6 +8,7 @@ namespace DevFreela.Application.ViewModels
 {
     public class UserViewModel
     {
+        public int Id { get; set; }
         public string FullName { get; private set; }
         public string Email { get; private set; }
         public DateTime BirthDate { get; private set; }
@@ -18,8 +19,9 @@ namespace DevFreela.Application.ViewModels
         public List<Project> FreelanceProjects { get; private set; }
 
 
-        public UserViewModel(string fullName, string email, DateTime birthDate, DateTime createdAt, bool active, List<UserSkill> skills, List<Project> ownedProjects, List<Project> freelanceProjects)
+        public UserViewModel(int id, string fullName, string email, DateTime birthDate, DateTime createdAt, bool active, List<UserSkill> skills, List<Project> ownedProjects, List<Project> freelanceProjects)
         {
+            Id = id;
             FullName = fullName;
             Email = email;
             BirthDate = birthDate;

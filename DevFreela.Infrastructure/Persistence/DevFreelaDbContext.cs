@@ -9,7 +9,7 @@ namespace DevFreela.Infrastructure.Persistence
         public List<Skill> Skills { get; set; }
         public List<ProjectComment> ProjectComments { get; set; }
 
-        public DevFreelaDbContext(List<Project> projects, List<User> users, List<Skill> skills, List<ProjectComment> projectComments)
+        public DevFreelaDbContext()
         {
             Projects = new List<Project>{
                 new Project("Meu ASPNET Core 1", "Minha Descrição de Projeto 1", 1, 1, 10000),
