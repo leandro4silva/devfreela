@@ -111,9 +111,6 @@ namespace DevFreela.Application.Services.Implementations
             }
 
             project.Update(inputModel.Title, inputModel.Description, inputModel.TotalCost);
-
-
-
         }
     }
 }

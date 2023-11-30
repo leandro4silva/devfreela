@@ -25,12 +25,32 @@ namespace DevFreela.Application.Services.Implementations
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var user = _dbContext.Users.SingleOrDefault(u => u.Id == id);
+
+            if (user is null)
+            {
+                throw new ResourceNotFound();
+            }
+
+            user.Delete();
         }
 
         public List<UserViewModel> GetAll()
         {
-            throw new NotImplementedException();
+            var users = _dbContext.Users;
+
+            var userViewModel = users.Select(u => new UserViewModel(
+                u.FullName,
+                u.Email,
+                u.BirthDate,
+                u.CreatedAt,
+                u.Active,
+                u.Skills,
+                u.OwnedProjects,
+                u.FreelanceProjects
+            )).ToList();
+
+            return userViewModel;
         }
 
         public UserDetailsViewModel GetById(int id)
@@ -58,7 +78,14 @@ namespace DevFreela.Application.Services.Implementations
 
         public void Update(UpdateUserInputModel inputModel)
         {
-            throw new NotImplementedException();
+            var user = _dbContext.Users.Find(u => u.Id == inputModel.Id);
+
+            if (user is null)
+            {
+                throw new ResourceNotFound();
+            }
+
+            user.Update(inputModel.FullName, inputModel.Email, inputModel.BirthDate, inputModel.Active);
         }
     }
 }

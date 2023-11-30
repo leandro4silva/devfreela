@@ -31,5 +31,21 @@ namespace DevFreela.Core.Entities
             FreelanceProjects = new List<Project>();
         }
 
+        public void Update(string fullName, string email, DateTime birthDate, bool active)
+        {
+            FullName = fullName;
+            Email = email;
+            BirthDate = birthDate;
+            Active = active;
+        }
+
+        public void Delete()
+        {
+            if (Active == true)
+            {
+                Active = false;
+            }
+        }
+
     }
 }
