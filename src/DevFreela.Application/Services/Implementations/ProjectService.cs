@@ -18,10 +18,10 @@ public class ProjectService : IProjectService
     public int Create(NewProjectInputModel inputModel)
     {
         var project = new Project(
-            inputModel.Title, 
-            inputModel.Description, 
-            inputModel.IdClient, 
-            inputModel.IdFreelancer, 
+            inputModel.Title,
+            inputModel.Description,
+            inputModel.IdClient,
+            inputModel.IdFreelancer,
             inputModel.TotalCost
         );
 
@@ -33,8 +33,8 @@ public class ProjectService : IProjectService
     public void CreateComment(CreateCommentInputModel inputModel)
     {
         var comment = new ProjectComment(
-            inputModel.Content, 
-            inputModel.IdProject, 
+            inputModel.Content,
+            inputModel.IdProject,
             inputModel.IdUser
         );
 
@@ -46,7 +46,7 @@ public class ProjectService : IProjectService
         var project = _dbContext.Projects.SingleOrDefault(p => p.Id == id);
 
         project!.Cancel();
-        
+
     }
 
     public void Finish(int id)
@@ -70,6 +70,8 @@ public class ProjectService : IProjectService
     public ProjectDetailsViewModel GetById(int id)
     {
         var project = _dbContext.Projects.SingleOrDefault(p => p.Id == id);
+
+        if (project == null) return null!;
 
         var projectDetailsViewModel = new ProjectDetailsViewModel(
             project!.Id,
