@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  devfreela:
+    container_name: devfreeladb
+    hostname: devfreeladb
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    environment:
+      - SA_PASSWORD=1313@Le14%
+      - ACCEPT_EULA=Y
+    ports:
+      - "5434:1433"
+
+networks:
+  default:
+    name: service_devfreela

@@ -5,25 +5,27 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D2A9687D-3D7A-4789-8277-A303DC115C83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFreela.API", "src\DevFreela.API\DevFreela.API.csproj", "{7C907D6B-477E-4F06-871F-26A04157A524}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevFreela.API", "src\DevFreela.API\DevFreela.API.csproj", "{7C907D6B-477E-4F06-871F-26A04157A524}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFreela.Application", "src\DevFreela.Application\DevFreela.Application.csproj", "{5B1461A5-2026-4E04-AE3A-ADAD21FFC637}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevFreela.Application", "src\DevFreela.Application\DevFreela.Application.csproj", "{5B1461A5-2026-4E04-AE3A-ADAD21FFC637}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFreela.Infrastructure", "src\DevFreela.Infrastructure\DevFreela.Infrastructure.csproj", "{C30A1E22-242D-401E-BDF0-A65F429C5400}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevFreela.Infrastructure", "src\DevFreela.Infrastructure\DevFreela.Infrastructure.csproj", "{C30A1E22-242D-401E-BDF0-A65F429C5400}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFreela.Domain", "src\DevFreela.Domain\DevFreela.Domain.csproj", "{BB3230BE-ED1D-4316-BD33-6EEAFFBEB143}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevFreela.Domain", "src\DevFreela.Domain\DevFreela.Domain.csproj", "{BB3230BE-ED1D-4316-BD33-6EEAFFBEB143}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{88C3525F-3279-47B2-9101-A0C89869B548}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFreela.UnitTests", "tests\DevFreela.UnitTests\DevFreela.UnitTests.csproj", "{085F2E50-8154-42D3-9937-9153C7354637}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevFreela.UnitTests", "tests\DevFreela.UnitTests\DevFreela.UnitTests.csproj", "{085F2E50-8154-42D3-9937-9153C7354637}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "env", "env", "{2B74AFD6-0B94-42A7-AD05-27B7128644A1}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{7C907D6B-477E-4F06-871F-26A04157A524}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -46,6 +48,9 @@ Global
 		{085F2E50-8154-42D3-9937-9153C7354637}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{085F2E50-8154-42D3-9937-9153C7354637}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{085F2E50-8154-42D3-9937-9153C7354637}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7C907D6B-477E-4F06-871F-26A04157A524} = {D2A9687D-3D7A-4789-8277-A303DC115C83}

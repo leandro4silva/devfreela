@@ -1,5 +1,6 @@
 ﻿using DevFreela.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace DevFreela.Infrastructure.Persistence;
 
@@ -13,52 +14,10 @@ public class DevFreelaDbContext : DbContext
 
     public DevFreelaDbContext(DbContextOptions<DevFreelaDbContext> options)
         : base(options)
-    {
-
-    }
+    { }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Project>().HasKey(p => p.Id);
-
-        modelBuilder.Entity<Project>()
-            .HasOne(p => p.Freelancer)
-            .WithMany(f => f.FreelanceProjects)
-            .HasForeignKey(p => p.IdFreelancer)
-            .OnDelete(DeleteBehavior.Restrict);
-
-        modelBuilder.Entity<Project>()
-            .HasOne(p => p.Client)
-            .WithMany(f => f.OwnedProjects)
-            .HasForeignKey(p => p.IdClient)
-            .OnDelete(DeleteBehavior.Restrict);
-
-        modelBuilder.Entity<User>()
-            .HasKey(u => u.Id);
-
-        modelBuilder.Entity<User>()
-            .HasMany(u => u.Skills)
-            .WithOne()
-            .HasForeignKey(u => u.IdSkill)
-            .OnDelete(DeleteBehavior.Restrict);
-
-        modelBuilder.Entity<Skill>()
-            .HasKey(s => s.Id);
-
-        modelBuilder.Entity<UserSkill>()
-            .HasKey(us => us.Id);
-
-        modelBuilder.Entity<ProjectComment>()
-            .HasKey(pc => pc.Id);
-
-        modelBuilder.Entity<ProjectComment>()
-            .HasOne(p => p.Project)
-            .WithMany(p => p.Comments)
-            .HasForeignKey(p => p.IdProject);
-
-        modelBuilder.Entity<ProjectComment>()
-            .HasOne(p => p.User)
-            .WithMany(p => p.Comments)
-            .HasForeignKey(p => p.IdUser);
+        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());  
     }
 }
