@@ -26,6 +26,7 @@ public class ProjectService : IProjectService
         );
 
         _dbContext.Projects.Add(project);
+        _dbContext.SaveChanges();
 
         return project.Id;
     }
@@ -39,6 +40,8 @@ public class ProjectService : IProjectService
         );
 
         _dbContext.Comments.Add(comment);
+        _dbContext.SaveChanges();
+
     }
 
     public void Delete(int id)
@@ -47,6 +50,8 @@ public class ProjectService : IProjectService
 
         project!.Cancel();
 
+        _dbContext.SaveChanges();
+
     }
 
     public void Finish(int id)
@@ -54,6 +59,9 @@ public class ProjectService : IProjectService
         var project = _dbContext.Projects.SingleOrDefault(p => p.Id == id);
 
         project!.Finish();
+
+        _dbContext.SaveChanges();
+
     }
 
     public List<ProjectViewModel> GetAll(string query)
@@ -90,11 +98,16 @@ public class ProjectService : IProjectService
         var project = _dbContext.Projects.SingleOrDefault(p => p.Id == id);
 
         project!.Start();
+
+        _dbContext.SaveChanges();
+
     }
 
     public void Update(UpdateProjectInputModel inputModel)
     {
         var project = _dbContext.Projects.SingleOrDefault(p => p.Id == inputModel.Id);
         project!.Update(project.Title, project.Description, project.TotalCost);
+
+        _dbContext.SaveChanges();
     }
 }
