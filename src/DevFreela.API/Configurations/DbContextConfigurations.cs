@@ -1,6 +1,5 @@
 ﻿using DevFreela.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace DevFreela.API.Configurations;
 
@@ -10,7 +9,10 @@ public static class DbContextConfigurations
        (this IServiceCollection services, IConfiguration configuration)
     {
         var connectionString = configuration.GetConnectionString("DevfreelaDb");
-        services.AddDbContext<DevFreelaDbContext>(options => options.UseSqlServer(connectionString));
+        services.AddDbContext<DevFreelaDbContext>(options => options.UseMySql(
+                connectionString,
+                ServerVersion.AutoDetect(connectionString)
+            ));
         return services;
     }
 }

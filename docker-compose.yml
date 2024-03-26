@@ -1,15 +1,14 @@
 version: '3.4'
 
 services:
-  devfreela:
+  devfreela.db:
     container_name: devfreeladb
     hostname: devfreeladb
-    image: mcr.microsoft.com/mssql/server:2017-latest
-    environment:
-      - SA_PASSWORD=1313@Le14%
-      - ACCEPT_EULA=Y
+    image: mysql
     ports:
-      - "5434:1433"
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: D3vfrelaa.@
 
 networks:
   default:

@@ -18,12 +18,13 @@ public class UserService : IUserService
     public int Create(CreateUserInputModel inputModel)
     {
         var user = new User(
-            inputModel.FullName, 
-            inputModel.Email, 
+            inputModel.FullName,
+            inputModel.Email,
             inputModel.BirthDate
         );
 
         _dbContext.Users.Add(user);
+        _dbContext.SaveChanges();
 
         return user.Id;
     }
